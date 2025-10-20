@@ -11,6 +11,29 @@ Esse é um problema clássico da **teoria dos grafos**, relacionado ao famoso **
 ### 🎯 Objetivo
 Implementar uma solução simples e didática para **verificar se um Caminho Hamiltoniano existe** em um grafo e, em caso afirmativo, **exibir o caminho encontrado**.
 
+#### Descrição rápida do algoritmo
+Descrição rápida do algoritmo
+
+hamiltonian_path(graph, path, visited)
+
+Se o caminho atual já contém todos os vértices (len(path) == len(graph)), há sucesso.
+Pega o último vértice do caminho e percorre seus vizinhos.
+Para cada vizinho ainda não visitado: marca como visitado, adiciona ao caminho e chama a função recursivamente.
+Se a chamada recursiva retornar sucesso, propaga True. Caso contrário, desfaz a escolha (backtracking) removendo o vértice do caminho e do conjunto visitado.
+Se nenhum vizinho levar a uma solução, retorna False.
+find_hamiltonian_path(graph)
+
+Tenta iniciar o caminho em cada vértice do grafo.
+Para cada vértice inicial, cria path e visited com esse vértice.
+Chama hamiltonian_path. Se encontrar caminho, retorna a lista.
+Se nenhum vértice inicial produzir resultado, retorna None.
+
+
+Bloco if __name__ == "__main__":
+Define um grafo não orientado como dicionário de adjacências.
+Chama find_hamiltonian_path.
+Se encontrar caminho, imprime a lista. Senão, avisa que não há caminho Hamiltoniano.
+
 ---
 
 ### 💻 Execução do Programa
